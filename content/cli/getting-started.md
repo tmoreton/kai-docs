@@ -10,39 +10,65 @@ Kai is an AI coding assistant with persistent memory, background agents, and too
 
 ## Quick Start
 
+### Option 1: Desktop App (macOS)
+
+Download the native macOS app with built-in Node.js runtime:
+
+[Download Kai Desktop v1.1.0](/Kai_1.1.0_aarch64.dmg) — for Apple Silicon Macs
+
+- Drag to Applications folder
+- Open and set your OpenRouter API key on first launch
+- No command line required
+
+### Option 2: CLI Install (npm)
+
+Install via npm for any platform (macOS, Linux, Windows):
+
 ```bash
-# Install dependencies
+npm install -g kai
+```
+
+Then set up your environment:
+
+```bash
+# Create env file
+cp .env.example .env
+
+# Edit .env and add your OpenRouter API key
+OPENROUTER_API_KEY=your_key_here
+```
+
+### Option 3: Source Install
+
+```bash
+# Clone and install
+git clone https://github.com/tmoreton/kai.git
+cd kai
 npm install
 
-# Set up your API key
+# Set up API key
 cp .env.example .env
-# Edit .env and add your OpenRouter API key
+# Edit .env
 
 # Run in development
 npm run dev
-
-# Or build and run
-npm run build
-npm start
 ```
 
 ## Requirements
 
-- Node.js 18+
-- OpenRouter API key ([get one here](https://openrouter.ai/keys))
+- **Desktop app**: macOS 10.15+ (Apple Silicon)
+- **CLI/npm**: Node.js 18+
+- **All versions**: OpenRouter API key ([get one here](https://openrouter.ai/keys))
 - Optional: Tavily API key for web search
 
-## Environment Setup
-
-Create a `.env` file with:
-
-```bash
-OPENROUTER_API_KEY=your_api_key_here
-MODEL_ID=moonshotai/kimi-k2.5  # optional override
-TAVILY_API_KEY=your_tavily_key  # optional, for web search
-```
-
 ## First Run
+
+### Desktop App
+1. Open Kai from Applications
+2. Enter your OpenRouter API key on the onboarding screen
+3. Start chatting in the web UI
+
+### CLI
 
 Start the interactive REPL:
 
@@ -100,9 +126,15 @@ Kai loads config from (highest priority first):
 }
 ```
 
-## Non-Technical Users
+## Environment Setup
 
-📖 New to coding? Check out the [Simple Chat UI Guide](CHAT_UI_GUIDE.md) — no coding experience required!
+Create a `.env` file with:
+
+```bash
+OPENROUTER_API_KEY=your_api_key_here
+MODEL_ID=moonshotai/kimi-k2.5  # optional override
+TAVILY_API_KEY=your_tavily_key  # optional, for web search
+```
 
 ## Next Steps
 

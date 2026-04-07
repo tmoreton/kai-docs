@@ -2,16 +2,18 @@ import Link from 'next/link'
 import { 
   Terminal, 
   ChevronRight,
-  Command,
   MessageSquare,
   FolderOpen,
   Settings,
-  Cpu,
   GitBranch,
   Sparkles,
   Zap,
   ArrowRight,
-  Monitor
+  Monitor,
+  Apple,
+  Download,
+  Bot,
+  Cpu
 } from 'lucide-react'
 
 // Sidebar Navigation Component
@@ -23,13 +25,15 @@ function Sidebar() {
         { label: 'Overview', href: '/cli/', active: true },
         { label: 'Installation', href: '#installation' },
         { label: 'Quick Start', href: '#quick-start' },
+        { label: 'Desktop App', href: '#desktop-app' },
       ]
     },
     {
       title: 'Documentation',
       items: [
-        { label: 'Commands', href: '#commands' },
-        { label: 'Global Options', href: '#global-options' },
+        { label: 'CLI Commands', href: '#cli-commands' },
+        { label: 'REPL Commands', href: '#repl-commands' },
+        { label: 'Environment Setup', href: '#environment' },
       ]
     },
     {
@@ -98,7 +102,7 @@ function CommandCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2">
             <code className="text-sm font-mono bg-slate-100 px-2 py-1 rounded text-slate-800">
-              kai {command}
+              {command}
             </code>
           </div>
           <p className="text-sm text-slate-600 mb-3">{description}</p>
@@ -116,41 +120,56 @@ function CommandCard({
 export default function CliPage() {
   const commands = [
     {
-      command: 'chat',
-      description: 'Start an interactive chat session with Kai',
-      example: '$ kai chat\n> What files are in this project?',
+      command: 'kai',
+      description: 'Start interactive REPL mode',
+      example: '$ kai\n> explain this codebase',
+      icon: <Terminal size={20} />
+    },
+    {
+      command: 'kai "query"',
+      description: 'One-shot query without interactive mode',
+      example: '$ kai "review this file"',
       icon: <MessageSquare size={20} />
     },
     {
-      command: 'web',
-      description: 'Launch the Kai web interface',
-      example: '$ kai web --port 3000',
+      command: 'kai server',
+      description: 'Start web server with UI and agents',
+      example: '$ kai server --port 3000',
       icon: <Zap size={20} />
     },
     {
-      command: 'git commit',
-      description: 'Generate smart commit messages',
-      example: '$ kai git commit -m "smart"',
+      command: 'kai agent',
+      description: 'Manage background agents',
+      example: '$ kai agent list\n$ kai agent run <id>',
+      icon: <Bot size={20} />
+    },
+    {
+      command: '/git commit',
+      description: 'AI-generated commit messages',
+      example: '> /git commit --push',
       icon: <GitBranch size={20} />
     },
     {
-      command: 'skills list',
-      description: 'List available skills',
-      example: '$ kai skills list',
+      command: '/skill',
+      description: 'List and manage skills',
+      example: '> /skill reload',
       icon: <Sparkles size={20} />
-    },
-    {
-      command: 'init',
-      description: 'Initialize Kai in a project',
-      example: '$ kai init --template typescript',
-      icon: <FolderOpen size={20} />
-    },
-    {
-      command: 'config',
-      description: 'Manage Kai configuration',
-      example: '$ kai config set model claude-3-opus',
-      icon: <Settings size={20} />
     }
+  ]
+
+  const replCommands = [
+    { command: '/help', description: 'Show all available commands' },
+    { command: '/clear', description: 'Clear conversation history' },
+    { command: '/compact', description: 'Compress context to save tokens' },
+    { command: '/sessions', description: 'List recent sessions' },
+    { command: '/soul', description: 'View core memory + recall stats' },
+    { command: '/diff', description: 'Show all changes made this session' },
+    { command: '/git', description: 'Git status + changed files' },
+    { command: '/git diff', description: 'Colorized diff (staged + unstaged)' },
+    { command: '/git commit [msg] [--push]', description: 'AI-generated commit + optional push' },
+    { command: '/git pr [title]', description: 'Create PR (branch + commit + push + open)' },
+    { command: '/agent', description: 'List background agents' },
+    { command: '/doctor', description: 'Run system diagnostics' },
   ]
 
   return (
@@ -172,30 +191,63 @@ export default function CliPage() {
             {/* Header */}
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-white">
-                  <Terminal size={24} />
-                </div>
+                <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" fill="#14b8a6"/>
+                  <g fill="white">
+                    <polygon points="35,30 60,45 35,60" transform="translate(5, -5) scale(0.8)"/>
+                    <rect x="35" y="62" width="30" height="6" rx="1"/>
+                  </g>
+                </svg>
                 <div>
                   <h1 className="text-3xl font-bold text-slate-900">Kai CLI</h1>
                   <p className="text-slate-600">Command-line interface for Kai</p>
                 </div>
               </div>
               <p className="text-lg text-slate-600 max-w-2xl">
-                The Kai CLI provides a powerful command-line interface for interacting with your codebase. 
-                Start conversations, run commands, manage git workflows, and more.
+                The Kai CLI provides a powerful terminal interface with persistent memory, 
+                background agents, and 21+ skills for AI-powered development.
               </p>
             </div>
 
+            {/* Desktop App Section */}
+            <section id="desktop-app" className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Desktop App (macOS)</h2>
+              <div className="bg-white rounded-xl border border-slate-200 p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-teal-50 text-teal-600 shrink-0">
+                    <Apple size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-slate-900 mb-2">Download Kai Desktop</h3>
+                    <p className="text-slate-600 mb-4">
+                      Native macOS app with built-in Node.js runtime. No dependencies required.
+                      Just drag to Applications and run.
+                    </p>
+                    <Link 
+                      href="/Kai_1.1.0_aarch64.dmg"
+                      className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md transition-colors"
+                    >
+                      <Download size={18} />
+                      Download for Mac (Apple Silicon)
+                    </Link>
+                    <p className="text-xs text-slate-500 mt-3">
+                      macOS 10.15+ required. For Intel Macs, use npm install below.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Installation */}
-            <section className="mb-16">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Installation</h2>
+            <section id="installation" className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Installation (npm)</h2>
               <div className="bg-slate-900 rounded-xl p-6 mb-6">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-slate-400">npm</span>
+                  <span className="text-sm text-slate-400">npm global install</span>
                   <span className="text-xs text-slate-500">Copy</span>
                 </div>
                 <code className="text-lg font-mono text-green-400">
-                  npm install -g @kai-ai/cli
+                  npm install -g kai
                 </code>
               </div>
               <p className="text-slate-600">
@@ -203,13 +255,34 @@ export default function CliPage() {
               </p>
               <div className="bg-slate-900 rounded-xl p-6 mt-4">
                 <code className="text-lg font-mono text-green-400">
-                  npm install --save-dev @kai-ai/cli
+                  npm install --save-dev kai
                 </code>
               </div>
             </section>
 
+            {/* Environment Setup */}
+            <section id="environment" className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Environment Setup</h2>
+              <p className="text-slate-600 mb-4">
+                Create a <code className="text-sm font-mono bg-slate-100 px-2 py-1 rounded">.env</code> file with your API keys:
+              </p>
+              <div className="bg-slate-900 rounded-xl p-6">
+                <code className="text-sm font-mono text-green-400 block">
+                  OPENROUTER_API_KEY=your_key_here<br/>
+                  MODEL_ID=moonshotai/kimi-k2.5  # optional<br/>
+                  TAVILY_API_KEY=your_key       # optional, for web search
+                </code>
+              </div>
+              <p className="text-slate-600 mt-4">
+                Get an OpenRouter API key at{' '}
+                <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                  openrouter.ai/keys
+                </a>
+              </p>
+            </section>
+
             {/* Quick Start */}
-            <section className="mb-16">
+            <section id="quick-start" className="mb-16">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Quick Start</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
@@ -226,8 +299,9 @@ export default function CliPage() {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Start a conversation</h3>
-                    <code className="text-sm font-mono text-slate-600">kai chat</code>
+                    <h3 className="font-semibold text-slate-900">Start Kai</h3>
+                    <code className="text-sm font-mono text-slate-600">kai</code>
+                    <p className="text-sm text-slate-600">Or run a one-shot query: <code className="text-sm font-mono">kai &quot;explain this code&quot;</code></p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -235,57 +309,109 @@ export default function CliPage() {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Ask anything about your code</h3>
-                    <p className="text-sm text-slate-600">Kai will analyze your codebase and provide intelligent responses.</p>
+                    <h3 className="font-semibold text-slate-900">Use slash commands</h3>
+                    <code className="text-sm font-mono text-slate-600">/git commit</code>
+                    <p className="text-sm text-slate-600">Kai has AI-powered git workflows, agents, and 21+ skills.</p>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Common Commands */}
-            <section className="mb-16">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Common Commands</h2>
+            {/* CLI Commands */}
+            <section id="cli-commands" className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">CLI Commands</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {commands.map((cmd, index) => (
                   <CommandCard key={index} {...cmd} />
                 ))}
               </div>
-            </section>
-
-            {/* Global Options */}
-            <section className="mb-16">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Global Options</h2>
-              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+              
+              <div className="mt-8 bg-white rounded-xl border border-slate-200 overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-slate-50 border-b border-slate-200">
                     <tr>
-                      <th className="px-6 py-3 text-left font-semibold text-slate-700">Option</th>
+                      <th className="px-6 py-3 text-left font-semibold text-slate-700">Command</th>
                       <th className="px-6 py-3 text-left font-semibold text-slate-700">Description</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
                     <tr>
-                      <td className="px-6 py-4 font-mono text-slate-700">--model</td>
-                      <td className="px-6 py-4 text-slate-600">Specify the AI model (claude-3-opus, claude-3-sonnet, gpt-4, etc.)</td>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai --continue</td>
+                      <td className="px-6 py-4 text-slate-600">Resume most recent session</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-mono text-slate-700">--agent</td>
-                      <td className="px-6 py-4 text-slate-600">Use a specific agent persona</td>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai --resume &lt;id&gt;</td>
+                      <td className="px-6 py-4 text-slate-600">Resume specific session</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-mono text-slate-700">--verbose</td>
-                      <td className="px-6 py-4 text-slate-600">Enable verbose output</td>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai --name &quot;name&quot;</td>
+                      <td className="px-6 py-4 text-slate-600">Name the session</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-mono text-slate-700">--help</td>
-                      <td className="px-6 py-4 text-slate-600">Show help information</td>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai --yes</td>
+                      <td className="px-6 py-4 text-slate-600">Auto-approve all tool calls</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-mono text-slate-700">--version</td>
-                      <td className="px-6 py-4 text-slate-600">Show version information</td>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai agent create &lt;name&gt; &lt;workflow.yaml&gt;</td>
+                      <td className="px-6 py-4 text-slate-600">Create agent with optional --schedule</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 font-mono text-slate-700">kai mcp list</td>
+                      <td className="px-6 py-4 text-slate-600">List configured MCP servers</td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </section>
+
+            {/* REPL Commands */}
+            <section id="repl-commands" className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">REPL Slash Commands</h2>
+              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <table className="w-full text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200">
+                    <tr>
+                      <th className="px-6 py-3 text-left font-semibold text-slate-700">Command</th>
+                      <th className="px-6 py-3 text-left font-semibold text-slate-700">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {replCommands.map((cmd, index) => (
+                      <tr key={index}>
+                        <td className="px-6 py-3 font-mono text-slate-700">{cmd.command}</td>
+                        <td className="px-6 py-3 text-slate-600">{cmd.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* Configuration */}
+            <section className="mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Configuration</h2>
+              <p className="text-slate-600 mb-4">
+                Kai loads config from (highest priority first):
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-slate-600 mb-6">
+                <li><code className="font-mono text-sm">.kai/settings.json</code> (project-level)</li>
+                <li><code className="font-mono text-sm">kai.config.json</code> (project-level)</li>
+                <li><code className="font-mono text-sm">~/.kai/settings.json</code> (user-level)</li>
+              </ol>
+              <div className="bg-slate-900 rounded-xl p-6">
+                <code className="text-sm font-mono text-green-400 block">
+                  {'{'}<br/>
+                  &nbsp;&nbsp;&quot;model&quot;: &quot;moonshotai/kimi-k2.5&quot;,<br/>
+                  &nbsp;&nbsp;&quot;mcp&quot;: {'{'}<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;servers&quot;: {'{'}...{'}'}<br/>
+                  &nbsp;&nbsp;{'}'},<br/>
+                  &nbsp;&nbsp;&quot;permissions&quot;: {'{'}<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;mode&quot;: &quot;default&quot;,<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;allow&quot;: [],<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;deny&quot;: []<br/>
+                  &nbsp;&nbsp;{'}'}<br/>
+                  {'}'}
+                </code>
               </div>
             </section>
 

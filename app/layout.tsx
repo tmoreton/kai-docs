@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from 'next/link'
-import { Terminal, Monitor, Zap } from 'lucide-react'
+import { Monitor, Zap } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Kai - AI Coding Assistant',
   description: 'AI-powered development environment with persistent memory, background agents, and 21+ skills',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
+
+// Logo component matching the design: teal circle with >_ prompt
+function Logo({ size = 32 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="50" fill="#14b8a6"/>
+      <g fill="white">
+        <polygon points="35,30 60,45 35,60" transform="translate(5, -5) scale(0.8)"/>
+        <rect x="35" y="62" width="30" height="6" rx="1"/>
+      </g>
+    </svg>
+  )
+}
 
 export default function RootLayout({
   children,
@@ -22,16 +38,14 @@ export default function RootLayout({
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-600 text-white">
-                  <Terminal size={18} />
-                </div>
+                <Logo size={32} />
                 <span className="text-lg font-semibold text-gray-900">Kai</span>
               </Link>
 
               {/* Navigation */}
               <nav className="hidden md:flex items-center gap-6">
                 <Link href="/cli/" className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-1.5">
-                  <Terminal size={14} />
+                  <Monitor size={14} />
                   CLI
                 </Link>
                 <Link href="/web-ui/" className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-1.5">

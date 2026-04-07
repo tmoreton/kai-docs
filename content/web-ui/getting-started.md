@@ -10,6 +10,13 @@ Kai includes a browser-based chat interface with real-time streaming, session ma
 
 ## Starting the Server
 
+The Web UI is built into both the Desktop app and CLI. It starts automatically when you run:
+
+### Desktop App
+The Desktop app includes the web UI built-in. Just open Kai and it will be available at `http://localhost:3141`.
+
+### CLI
+
 ```bash
 # Start web server (includes API + UI + agent daemon)
 kai server
@@ -22,9 +29,37 @@ kai server --no-ui
 
 # API + UI only (no agents)
 kai server --no-agents
+
+# Bind to all interfaces (for remote access)
+kai server --host 0.0.0.0
 ```
 
 Default URL: `http://localhost:3141`
+
+## Interface Sections
+
+### Chat
+- Real-time streaming responses
+- Tool call visualization
+- Session history sidebar
+- Markdown rendering with code highlighting
+
+### Code View
+- Browse your project files
+- View file contents with syntax highlighting
+- Integrated with chat context
+
+### Agents
+- View all background agents
+- Run agents manually
+- Check agent status and logs
+- Create new agents from YAML workflows
+
+### Settings
+- Configure API keys
+- Change default model
+- Manage MCP servers
+- Adjust permissions
 
 ## Features
 
@@ -34,6 +69,7 @@ Default URL: `http://localhost:3141`
 - **Model switching** - Change LLM models on the fly
 - **Tool visualization** - See which tools are being called
 - **Markdown rendering** - Full support for code blocks, lists, etc.
+- **PWA support** - Install as a desktop app from browser
 
 ## Web API Endpoints
 
@@ -77,19 +113,6 @@ When running `kai server`, these endpoints are available:
 | `/api/models` | GET | Available models (cached) |
 | `/api/image` | GET | Serve local image files |
 
-## Architecture
-
-```
-src/web/
-├── server.ts         # Hono HTTP server + SSE streaming
-└── public/
-    └── index.html    # Web UI (SPA)
-```
-
-The web UI is a single-page application that communicates with the server via:
-- SSE (Server-Sent Events) for streaming responses
-- REST API for session/agent management
-
 ## Chat API Example
 
 ```javascript
@@ -114,8 +137,16 @@ The web server respects all Kai configuration options from:
 - `~/.kai/settings.json`
 - Environment variables
 
-## Non-Technical Users
+## Architecture
 
-The Web UI is designed for users without coding experience. No terminal commands required — just open your browser and chat!
+```
+packages/web/        # React SPA (Vite + React Router)
+src/web/
+├── server.ts       # Hono HTTP server + SSE streaming
+└── public/         # Static assets
+```
 
-For more details, see the [Simple Chat UI Guide](../CHAT_UI_GUIDE.md).
+The web UI communicates with the server via:
+- SSE (Server-Sent Events) for streaming responses
+- REST API for session/agent management
+- TanStack Query for data fetching and caching

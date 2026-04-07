@@ -182,9 +182,13 @@ export default function WebUiPage() {
             {/* Header */}
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-600 text-white">
-                  <Monitor size={24} />
-                </div>
+                <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" fill="#14b8a6"/>
+                  <g fill="white">
+                    <polygon points="35,30 60,45 35,60" transform="translate(5, -5) scale(0.8)"/>
+                    <rect x="35" y="62" width="30" height="6" rx="1"/>
+                  </g>
+                </svg>
                 <div>
                   <h1 className="text-3xl font-bold text-slate-900">Web UI</h1>
                   <p className="text-slate-600">Browser-based interface for Kai</p>
