@@ -183,10 +183,10 @@ export default function WebUiPage() {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="50" fill="#14b8a6"/>
+                  <circle cx="50" cy="50" r="50" fill="#4A9088"/>
                   <g fill="white">
-                    <polygon points="35,30 60,45 35,60" transform="translate(5, -5) scale(0.8)"/>
-                    <rect x="35" y="62" width="30" height="6" rx="1"/>
+                    <path d="M35 32 L55 45 L35 58 L35 50 L45 45 L35 40 Z"/>
+                    <rect x="35" y="62" width="25" height="5" rx="1"/>
                   </g>
                 </svg>
                 <div>
