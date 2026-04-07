@@ -1,0 +1,115 @@
+---
+title: CLI and REPL Commands
+description: Complete reference for all Kai CLI commands and REPL slash commands
+category: cli
+---
+
+# Commands Reference
+
+## CLI Commands
+
+| Command | Description |
+|---------|-------------|
+| `kai` | Start interactive REPL |
+| `kai "query"` | One-shot query |
+| `kai --continue` | Resume most recent session |
+| `kai --resume <id>` | Resume specific session |
+| `kai --name "name"` | Name the session |
+| `kai --yes` | Auto-approve all tool calls |
+| `kai server` | Start web server on port 3141 |
+| `kai server --port 3000` | Custom port |
+| `kai server --no-ui` | API + agents only |
+| `kai server --no-agents` | API + UI only |
+
+### Agent Management
+
+| Command | Description |
+|---------|-------------|
+| `kai agent list` | List all agents |
+| `kai agent create <name> <workflow.yaml>` | Create agent with optional `--schedule "0 */6 * * *"` |
+| `kai agent run <id>` | Run an agent now |
+| `kai agent output <id>` | View latest output |
+| `kai agent info <id>` | Agent details + run history |
+| `kai agent delete <id>` | Delete an agent |
+| `kai agent daemon` | Start the cron scheduler |
+| `kai agent stop` | Stop the scheduler |
+
+### MCP Servers
+
+| Command | Description |
+|---------|-------------|
+| `kai mcp list` | List configured servers + tools |
+
+## REPL Commands (Slash Commands)
+
+| Command | Description |
+|---------|-------------|
+| `/help` | Show all available commands |
+| `/clear` | Clear conversation (keep system prompt) |
+| `/compact` | Compress context to save tokens |
+| `/sessions` | List recent sessions |
+| `/soul` | View core memory + recall stats |
+| `/diff` | Show all changes made this session |
+| `/exit` | Exit Kai |
+
+### Git Commands
+
+| Command | Description |
+|---------|-------------|
+| `/git` | Git status + changed files |
+| `/git diff` | Colorized diff (staged + unstaged) |
+| `/git log [n]` | Recent commits (default 15) |
+| `/git undo [n] [hard]` | Undo last N commits + clear conversation |
+| `/git stash [msg]` | Stash uncommitted changes |
+| `/git commit [msg] [--push]` | AI-generated commit + optional push |
+| `/git pr [title]` | Create PR (branch + commit + push + open) |
+| `/git branch [name]` | List or create/switch branches |
+
+### Agent Commands
+
+| Command | Description |
+|---------|-------------|
+| `/agent` | List background agents |
+| `/agent run <id>` | Run an agent now |
+| `/agent output <id>` | View agent output |
+| `/agent info <id>` | Agent details + run history |
+
+### Skill Commands
+
+| Command | Description |
+|---------|-------------|
+| `/skill` | List loaded skills |
+| `/skill reload` | Reload all skills (hot reload) |
+
+### MCP Commands
+
+| Command | Description |
+|---------|-------------|
+| `/mcp` | List connected MCP servers + tools |
+| `/mcp add <name> <cmd>` | Add an MCP server |
+| `/mcp remove <name>` | Remove an MCP server |
+
+### Utility Commands
+
+| Command | Description |
+|---------|-------------|
+| `/doctor` | Run system diagnostics |
+| `/notify` | Show agent notifications |
+| `/notify --all` | Show all notifications |
+| `/export [path]` | Export session to markdown file |
+| `/plan` | Toggle plan mode |
+| `/review` | AI code review of current git changes |
+| `/security-review` | Security-focused audit of git changes |
+
+## Custom Commands
+
+You can add custom slash commands by creating markdown files in `.kai/commands/`.
+
+## Pipe Input
+
+Kai accepts piped input:
+
+```bash
+echo "explain this" | kai
+cat file.ts | kai "review this code"
+```
