@@ -12,7 +12,9 @@ import {
   Code2,
   Terminal,
   Apple,
-  Download
+  Download,
+  Github,
+  AlertCircle
 } from "lucide-react";
 import Link from "next/link";
 
@@ -74,7 +76,7 @@ export default function Home() {
           <div className="mb-6 flex items-center justify-center gap-3">
             <Logo size={48} />
             <span className="text-2xl font-bold text-gray-900">Kai</span>
-            <Badge variant="secondary" className="text-xs">v1.1.0</Badge>
+            <Badge variant="secondary" className="text-xs">v1.1.2</Badge>
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight mb-6">
@@ -89,9 +91,8 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#download" 
+              className="scroll-smooth"
             >
               <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8">
                 <Download className="w-4 h-4 mr-2" />
@@ -116,19 +117,32 @@ export default function Home() {
       </section>
 
       {/* Download Section */}
-      <section className="px-6 py-16 bg-gradient-to-br from-gray-50 to-teal-50/30">
+      <section id="download" className="px-6 py-16 bg-gradient-to-br from-gray-50 to-teal-50/30">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Download Kai
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            Available as a native desktop app or CLI for any platform.
+            Available as a native desktop app or CLI for any platform. Desktop releases are built automatically from the <a href="https://github.com/tmoreton/kai" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">main repo</a>.
           </p>
+          
+          {/* Build Status Notice */}
+          <div className="mb-8 inline-flex items-start gap-2 px-4 py-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 max-w-2xl">
+            <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+            <div className="text-left">
+              <p className="font-medium">Looking for the latest release?</p>
+              <p className="text-amber-700">
+                Check <a href="https://github.com/tmoreton/kai/releases" target="_blank" rel="noopener noreferrer" className="underline">GitHub Releases</a> for downloads. 
+                macOS (Apple Silicon & Intel) and Linux builds are available. 
+                Or install via CLI: <code className="bg-amber-100 px-1 rounded">npm install -g kai</code>
+              </p>
+            </div>
+          </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest" 
+              href="https://github.com/tmoreton/kai/releases" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group"
@@ -147,7 +161,7 @@ export default function Home() {
             
             {/* Windows */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest" 
+              href="https://github.com/tmoreton/kai/releases" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group"
@@ -168,7 +182,7 @@ export default function Home() {
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest" 
+              href="https://github.com/tmoreton/kai/releases" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group"
@@ -181,46 +195,101 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-semibold text-gray-900">Linux</h3>
-                  <p className="text-xs text-gray-500 mt-1">Ubuntu, Debian, etc.</p>
-                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .AppImage</span>
+                  <p className="text-xs text-gray-500 mt-1">AppImage + .deb</p>
+                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download</span>
                 </div>
               </div>
             </a>
           </div>
           
-          <div className="mt-8 pt-8 border-t border-gray-200">
+          {/* CLI Alternative */}
+          <div className="mt-8 p-6 bg-white rounded-xl border border-gray-200 max-w-2xl mx-auto">
+            <h3 className="font-semibold text-gray-900 mb-2">Prefer CLI?</h3>
             <p className="text-sm text-gray-600 mb-4">
-              <strong>Cross-platform CLI:</strong> Works on macOS (Intel), Windows, and Linux today
+              The CLI version works everywhere and auto-updates via npm.
             </p>
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-lg font-mono text-sm text-gray-700">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-lg font-mono text-sm">
               <span className="text-gray-400">$</span>
-              <span>npm install -g kai</span>
+              <span className="text-gray-700">npm install -g kai</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="px-6 py-20 bg-gray-50/50">
+      {/* Quick Start Section */}
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Everything you need</h2>
-            <p className="text-gray-600">Built for developers who want AI superpowers</p>
-          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-12">
+            Get Started in Seconds
+          </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature) => (
-              <div 
-                key={feature.title}
-                className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-teal-200 hover:shadow-lg transition-all duration-200"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                    <feature.icon className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Web UI Card */}
+            <Link href="/web-ui/" className="group">
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 transition-all h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Monitor className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">Web UI</h3>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-gray-600 mb-4">
+                  Browser-based interface with streaming responses, file upload, and session management.
+                </p>
+                <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-gray-300">
+                  <span className="text-gray-500">$ </span>kai web
+                </div>
+                <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                  Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            </Link>
+
+            {/* CLI Card */}
+            <Link href="/cli/" className="group">
+              <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-orange-300 transition-all h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <Terminal className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900">CLI + REPL</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Interactive terminal with slash commands, tool calling, and persistent memory.
+                </p>
+                <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-gray-300">
+                  <span className="text-gray-500">$ </span>kai
+                </div>
+                <div className="mt-4 flex items-center text-orange-600 text-sm font-medium">
+                  Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="px-6 py-16 bg-gray-50">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
+            Everything you need to ship faster
+          </h2>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            Kai combines AI assistance with powerful tools for modern development workflows.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600 mb-4">
+                  <feature.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -228,69 +297,108 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">21 Ready-to-use Skills</h2>
-              <p className="text-gray-600">Connect your favorite platforms with one command</p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              21+ Built-in Skills
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Kai comes with skills for popular tools and services. Activate the ones you need, keep your context clean.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              { name: "YouTube", icon: "📺", color: "bg-red-50 text-red-600" },
+              { name: "Twitter", icon: "🐦", color: "bg-blue-50 text-blue-600" },
+              { name: "Git", icon: "🔀", color: "bg-orange-50 text-orange-600" },
+              { name: "Notion", icon: "📝", color: "bg-gray-100 text-gray-700" },
+              { name: "Slack", icon: "💬", color: "bg-purple-50 text-purple-600" },
+              { name: "Email", icon: "📧", color: "bg-yellow-50 text-yellow-600" },
+              { name: "Browser", icon: "🌐", color: "bg-blue-50 text-blue-600" },
+              { name: "Database", icon: "🗄️", color: "bg-green-50 text-green-600" },
+              { name: "Files", icon: "📁", color: "bg-amber-50 text-amber-600" },
+              { name: "Image Gen", icon: "🎨", color: "bg-pink-50 text-pink-600" },
+              { name: "Web Search", icon: "🔍", color: "bg-teal-50 text-teal-600" },
+              { name: "+10 more", icon: "✨", color: "bg-gray-50 text-gray-600" },
+            ].map((skill, index) => (
+              <Link 
+                key={index}
+                href="/skills/"
+                className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg border border-gray-200 hover:border-teal-300 hover:shadow-sm transition-all"
+              >
+                <span className={`flex h-8 w-8 items-center justify-center rounded-md ${skill.color} text-sm`}>
+                  {skill.icon}
+                </span>
+                <span className="text-sm font-medium text-gray-900">{skill.name}</span>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
             <Link href="/skills/">
               <Button variant="outline">
-                Browse all skills
+                View all skills
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: "YouTube", desc: "Analytics & video stats" },
-              { name: "Twitter", desc: "Post & analyze tweets" },
-              { name: "Notion", desc: "Query databases" },
-              { name: "Slack", desc: "Send notifications" },
-              { name: "GitHub", desc: "PRs & commits" },
-              { name: "Docker", desc: "Deploy containers" },
-              { name: "Browser", desc: "Web scraping" },
-              { name: "OpenRouter", desc: "AI image gen" },
-            ].map((skill) => (
-              <div key={skill.name} className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <h4 className="font-medium text-gray-900">{skill.name}</h4>
-                <p className="text-xs text-gray-500 mt-1">{skill.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-20 bg-teal-600">
+      <section className="px-6 py-16 bg-gradient-to-br from-teal-600 to-teal-700">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to ship faster?
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Ready to accelerate your workflow?
           </h2>
-          <p className="text-teal-100 mb-8 text-lg">
-            Join developers using Kai to build with AI. Open source and free to use.
+          <p className="text-teal-100 mb-8 max-w-xl mx-auto">
+            Join developers who ship faster with Kai's AI-powered tools and persistent memory.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/cli/">
-              <Button size="lg" variant="secondary" className="px-8">
-                Read Documentation
-              </Button>
-            </Link>
             <a 
               href="https://github.com/tmoreton/kai" 
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="outline" className="border-teal-400 text-white hover:bg-teal-700 px-8">
-                <Code2 className="w-4 h-4 mr-2" />
+              <Button size="lg" variant="secondary" className="px-8">
+                <Github className="w-4 h-4 mr-2" />
                 View on GitHub
               </Button>
             </a>
+            <Link href="/cli/">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-700 px-8">
+                <Terminal className="w-4 h-4 mr-2" />
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="px-6 py-8 bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Logo size={24} />
+            <span className="font-semibold text-gray-900">Kai</span>
+          </div>
+          <p className="text-sm text-gray-500">
+            Open source AI coding assistant
+          </p>
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://github.com/tmoreton/kai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gray-900"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

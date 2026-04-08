@@ -223,15 +223,18 @@ export default function CliPage() {
                       Native macOS app with built-in Node.js runtime. No dependencies required.
                       Just drag to Applications and run.
                     </p>
-                    <Link 
-                      href="/Kai_1.1.0_aarch64.dmg"
+                    <a 
+                      href="https://github.com/tmoreton/kai/releases"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md transition-colors"
                     >
                       <Download size={18} />
                       Download for Mac (Apple Silicon)
-                    </Link>
+                    </a>
                     <p className="text-xs text-slate-500 mt-3">
-                      macOS 10.15+ required. For Intel Macs, use npm install below.
+                      Check <a href="https://github.com/tmoreton/kai/releases" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">GitHub Releases</a> for downloads. 
+                      For Intel Macs, use npm install below.
                     </p>
                   </div>
                 </div>
