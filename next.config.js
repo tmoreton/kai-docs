@@ -2,9 +2,8 @@
 const nextConfig = {
   output: "export",
   distDir: "dist",
-  // Remove basePath for root deployment (docs.kai.dev)
-  // Add it back if deploying to a subdirectory (e.g., /kai)
-  // basePath: "/kai",
+  // Deploy to /kai-docs subdirectory
+  basePath: "/kai-docs",
   images: {
     unoptimized: true,
   },
