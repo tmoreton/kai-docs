@@ -5,7 +5,7 @@ import { Monitor, Zap } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Kai - AI Coding Assistant',
-  description: 'AI-powered development environment with persistent memory, background agents, and 21+ skills',
+  description: 'AI-powered development environment with background agents, YAML workflows, and CI/CD integration',
   icons: {
     icon: '/favicon.svg',
   },

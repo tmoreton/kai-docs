@@ -196,7 +196,7 @@ export default function WebUiPage() {
               </div>
               <p className="text-lg text-slate-600 max-w-2xl">
                 The Kai Web UI provides a rich browser-based interface for interacting with your codebase. 
-                Features include chat, code editing, file management, and visual tools.
+                Features include streaming chat, workflow management, and agent monitoring.
               </p>
             </div>
 
@@ -214,11 +214,11 @@ export default function WebUiPage() {
                   <span className="text-xs text-slate-500">Copy</span>
                 </div>
                 <code className="text-lg font-mono text-green-400">
-                  kai web
+                  kai start
                 </code>
               </div>
               <p className="text-slate-600 mb-6">
-                The web interface will be available at <code className="bg-slate-100 px-2 py-1 rounded text-sm font-mono text-slate-700">http://localhost:3000</code>
+                The web interface will be available at <code className="bg-slate-100 px-2 py-1 rounded text-sm font-mono text-slate-700">http://localhost:3141</code>
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -228,7 +228,7 @@ export default function WebUiPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-slate-900">Launch</h3>
-                    <p className="text-sm text-slate-600">Run kai web in your project</p>
+                    <p className="text-sm text-slate-600">Run kai start in your project</p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start p-4 bg-white rounded-lg border border-slate-200">
@@ -237,7 +237,7 @@ export default function WebUiPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-slate-900">Connect</h3>
-                    <p className="text-sm text-slate-600">Open localhost:3000</p>
+                    <p className="text-sm text-slate-600">Open localhost:3141</p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start p-4 bg-white rounded-lg border border-slate-200">

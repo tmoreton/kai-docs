@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { 
   Monitor, 
   Zap, 
@@ -13,8 +12,7 @@ import {
   Terminal,
   Apple,
   Download,
-  Github,
-  AlertCircle
+  Github
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,6 +31,16 @@ function Logo({ size = 48 }: { size?: number }) {
 
 const features = [
   {
+    icon: Bot,
+    title: "Background Agents",
+    description: "Autonomous workflows on cron schedules with YAML definitions"
+  },
+  {
+    icon: Zap,
+    title: "CI/CD Built-in",
+    description: "Self-improving agents with review loops and quality iteration"
+  },
+  {
     icon: Terminal,
     title: "CLI REPL",
     description: "Interactive terminal with slash commands and tool calling"
@@ -46,16 +54,6 @@ const features = [
     icon: Brain,
     title: "Persistent Memory",
     description: "Soul, archival, and recall across sessions"
-  },
-  {
-    icon: Bot,
-    title: "Background Agents",
-    description: "Autonomous workflows on cron schedules"
-  },
-  {
-    icon: Zap,
-    title: "21+ Skills",
-    description: "YouTube, Twitter, Notion, Slack, and more"
   },
   {
     icon: GitBranch,
@@ -74,19 +72,18 @@ export default function Home() {
         
         <div className="relative mx-auto max-w-5xl text-center">
           <div className="mb-6 flex items-center justify-center gap-3">
-            <Logo size={48} />
-            <span className="text-2xl font-bold text-gray-900">Kai</span>
-            <Badge variant="secondary" className="text-xs">v1.1.2</Badge>
+            <Logo size={56} />
+            <span className="text-4xl font-bold text-gray-900">Kai</span>
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight mb-6">
             AI coding assistant with{" "}
-            <span className="text-teal-600">persistent memory</span>
+            <span className="text-teal-600">agents & workflows</span>
           </h1>
           
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Kai is an AI-powered development environment that understands your codebase, 
-            remembers context across sessions, and helps you ship faster with intelligent tools.
+            Your AI team member that never sleeps. Deploy autonomous agents to handle coding tasks, 
+            content creation, and daily workflows — while you focus on what matters.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -126,23 +123,11 @@ export default function Home() {
             Available as a native desktop app or CLI for any platform. Desktop releases are built automatically from the <a href="https://github.com/tmoreton/kai" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">main repo</a>.
           </p>
           
-          {/* Build Status Notice */}
-          <div className="mb-8 inline-flex items-start gap-2 px-4 py-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 max-w-2xl">
-            <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
-            <div className="text-left">
-              <p className="font-medium">Looking for the latest release?</p>
-              <p className="text-amber-700">
-                Check <a href="https://github.com/tmoreton/kai/releases" target="_blank" rel="noopener noreferrer" className="underline">GitHub Releases</a> for downloads. 
-                macOS (Apple Silicon & Intel) and Linux builds are available. 
-                Or install via CLI: <code className="bg-amber-100 px-1 rounded">npm install -g kai</code>
-              </p>
-            </div>
-          </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_aarch64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.6/Kai_v1.1.6_aarch64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -159,7 +144,7 @@ export default function Home() {
             
             {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_x86_64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.6/Kai_v1.1.6_x86_64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -176,7 +161,7 @@ export default function Home() {
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_amd64.AppImage"
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.6/Kai_v1.1.6_amd64.AppImage"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -248,7 +233,7 @@ export default function Home() {
                   Browser-based interface with streaming responses, file upload, and session management.
                 </p>
                 <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-gray-300">
-                  <span className="text-gray-500">$ </span>kai web
+                  <span className="text-gray-500">$ </span>kai start
                 </div>
                 <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
                   Learn more <ArrowRight className="w-4 h-4 ml-1" />
@@ -266,7 +251,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-gray-900">CLI + REPL</h3>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  Interactive terminal with slash commands, tool calling, and persistent memory.
+                  Interactive terminal with slash commands, tool calling, and background agents.
                 </p>
                 <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-gray-300">
                   <span className="text-gray-500">$ </span>kai
@@ -365,7 +350,7 @@ export default function Home() {
             Ready to accelerate your workflow?
           </h2>
           <p className="text-teal-100 mb-8 max-w-xl mx-auto">
-            Join developers who ship faster with Kai's AI-powered tools and persistent memory.
+            Join developers who ship faster with Kai's AI-powered agents and workflow automation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
@@ -379,7 +364,7 @@ export default function Home() {
               </Button>
             </a>
             <Link href="/cli/">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-700 px-8">
+              <Button size="lg" className="bg-white text-teal-700 hover:bg-teal-50 px-8">
                 <Terminal className="w-4 h-4 mr-2" />
                 Get Started
               </Button>

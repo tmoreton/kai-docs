@@ -132,9 +132,9 @@ export default function CliPage() {
       icon: <MessageSquare size={20} />
     },
     {
-      command: 'kai server',
+      command: 'kai start',
       description: 'Start web server with UI and agents',
-      example: '$ kai server --port 3000',
+      example: '$ kai start --port 3141',
       icon: <Zap size={20} />
     },
     {
