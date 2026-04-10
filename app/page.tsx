@@ -127,7 +127,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.8/Kai_v1.1.8_aarch64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_aarch64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -144,7 +144,7 @@ export default function Home() {
             
             {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.8/Kai_v1.1.8_x86_64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_x86_64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -161,7 +161,7 @@ export default function Home() {
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.8/Kai_v1.1.8_amd64.AppImage"
+              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_amd64.AppImage"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -178,21 +178,21 @@ export default function Home() {
               </div>
             </a>
             
-            {/* All Releases */}
+            {/* Windows */}
             <a 
-              href="https://github.com/tmoreton/kai/releases"
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_x64-setup.exe"
               className="group"
             >
-              <div className="flex flex-col items-center gap-3 p-5 bg-gray-50 rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100 text-gray-600">
-                  <Github className="w-6 h-6" />
+              <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                  </svg>
                 </div>
                 <div className="text-center">
-                  <h3 className="font-semibold text-gray-900">All Releases</h3>
-                  <p className="text-xs text-gray-500 mt-1">Windows + older versions</p>
-                  <span className="text-xs text-gray-600 font-medium mt-2 inline-block">View on GitHub</span>
+                  <h3 className="font-semibold text-gray-900">Windows</h3>
+                  <p className="text-xs text-gray-500 mt-1">x64 Installer</p>
+                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .exe</span>
                 </div>
               </div>
             </a>
