@@ -76,14 +76,13 @@ export default function Home() {
             <span className="text-4xl font-bold text-gray-900">Kai</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight mb-6">
-            AI coding assistant with{" "}
-            <span className="text-teal-600">agents & workflows</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+            Local, secure, autonomous{" "}
+            <span className="text-teal-600">AI agents</span>
           </h1>
           
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Your AI team member that never sleeps. Deploy autonomous agents to handle coding tasks, 
-            content creation, and daily workflows — while you focus on what matters.
+            Turn your computer into your agent coworker. Runs locally, so your code and data never leave your machine.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
