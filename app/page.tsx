@@ -142,7 +142,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_aarch64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_aarch64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -159,7 +159,7 @@ export default function Home() {
             
             {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_x86_64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_x86_64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -176,7 +176,7 @@ export default function Home() {
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_amd64.AppImage"
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.4/Kai_v1.1.4_amd64.AppImage"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
