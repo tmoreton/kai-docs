@@ -2,8 +2,7 @@
 const nextConfig = {
   output: "export",
   distDir: "dist",
-  // Deploy to /kai-docs subdirectory
-  basePath: "/kai-docs",
+  // No basePath for Vercel root deployment
   images: {
     unoptimized: true,
   },
@@ -15,6 +14,10 @@ const nextConfig = {
   },
   // Add trailingSlash to ensure proper static file generation
   trailingSlash: true,
+  // Force CSS to be included
+  experimental: {
+    optimizeCss: false,
+  },
 };
 
 module.exports = nextConfig;
