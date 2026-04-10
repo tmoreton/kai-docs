@@ -139,12 +139,10 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_aarch64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -153,38 +151,32 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-semibold text-gray-900">macOS</h3>
-                  <p className="text-xs text-gray-500 mt-1">Apple Silicon + Intel</p>
+                  <p className="text-xs text-gray-500 mt-1">Apple Silicon (M1/M2/M3)</p>
                   <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .dmg</span>
                 </div>
               </div>
             </a>
             
-            {/* Windows */}
+            {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_x86_64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
-                  </svg>
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                  <Apple className="w-6 h-6" />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-semibold text-gray-900">Windows</h3>
-                  <p className="text-xs text-gray-500 mt-1">10/11</p>
-                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .exe</span>
+                  <h3 className="font-semibold text-gray-900">macOS Intel</h3>
+                  <p className="text-xs text-gray-500 mt-1">Intel-based Macs</p>
+                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .dmg</span>
                 </div>
               </div>
             </a>
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="https://github.com/tmoreton/kai/releases/latest/download/Kai_v1.1.4_amd64.AppImage"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -195,8 +187,27 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-semibold text-gray-900">Linux</h3>
-                  <p className="text-xs text-gray-500 mt-1">AppImage + .deb</p>
+                  <p className="text-xs text-gray-500 mt-1">AppImage</p>
                   <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download</span>
+                </div>
+              </div>
+            </a>
+            
+            {/* All Releases */}
+            <a 
+              href="https://github.com/tmoreton/kai/releases"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <div className="flex flex-col items-center gap-3 p-5 bg-gray-50 rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100 text-gray-600">
+                  <Github className="w-6 h-6" />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-900">All Releases</h3>
+                  <p className="text-xs text-gray-500 mt-1">Windows + older versions</p>
+                  <span className="text-xs text-gray-600 font-medium mt-2 inline-block">View on GitHub</span>
                 </div>
               </div>
             </a>
