@@ -138,7 +138,7 @@ export default function Home() {
             
             {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_1.1.3_x86_64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai.1.1.3.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -153,43 +153,7 @@ export default function Home() {
               </div>
             </a>
             
-            {/* Linux */}
-            <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_1.1.3_amd64.AppImage"
-              className="group"
-            >
-              <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.444 1.485.877 2.059.784 1.038 1.93 1.78 3.204 2.145 1.353.388 2.853.136 4.258-.346 1.031-.363 2.048-.921 3.005-1.596 1.412-.993 2.491-2.288 3.233-3.752.7-1.381 1.055-2.874 1.055-4.407 0-1.809-.482-3.553-1.353-5.107-.726-1.302-1.782-2.426-3.053-3.251C15.495.857 14.063.265 12.504 0z"/>
-                  </svg>
-                </div>
-                <div className="text-center">
-                  <h3 className="font-semibold text-gray-900">Linux</h3>
-                  <p className="text-xs text-gray-500 mt-1">AppImage</p>
-                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download</span>
-                </div>
-              </div>
-            </a>
-            
-            {/* Windows */}
-            <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_1.1.3_x64-setup.exe"
-              className="group"
-            >
-              <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
-                  </svg>
-                </div>
-                <div className="text-center">
-                  <h3 className="font-semibold text-gray-900">Windows</h3>
-                  <p className="text-xs text-gray-500 mt-1">x64 Installer</p>
-                  <span className="text-xs text-teal-600 font-medium mt-2 inline-block">Download .exe</span>
-                </div>
-              </div>
-            </a>
+
           </div>
           
 
