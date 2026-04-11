@@ -14,7 +14,7 @@ Kai is an AI coding assistant with persistent memory, background agents, and too
 
 Download the native macOS app with built-in Node.js runtime:
 
-[Download Kai Desktop v1.1.3](https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_v1.1.3_aarch64.dmg) — for Apple Silicon Macs
+[Download Kai Desktop v1.1.3](https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_1.1.3_aarch64.dmg) — for Apple Silicon Macs
 
 - Drag to Applications folder
 - Open and set your OpenRouter API key on first launch
