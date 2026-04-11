@@ -103,12 +103,7 @@ export default function Home() {
             </Link>
           </div>
           
-          {/* Quick install */}
-          <div className="mt-12 inline-flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-lg font-mono text-sm text-gray-700">
-            <span className="text-gray-400">$</span>
-            <span>npm install -g kai</span>
-            <button className="ml-2 text-gray-400 hover:text-gray-600">Copy</button>
-          </div>
+
         </div>
       </section>
 
@@ -126,7 +121,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {/* macOS */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_aarch64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_v1.1.3_aarch64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -143,7 +138,7 @@ export default function Home() {
             
             {/* macOS Intel */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_x86_64.dmg" 
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_v1.1.3_x86_64.dmg" 
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -160,7 +155,7 @@ export default function Home() {
             
             {/* Linux */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_amd64.AppImage"
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_v1.1.3_amd64.AppImage"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -179,7 +174,7 @@ export default function Home() {
             
             {/* Windows */}
             <a 
-              href="https://github.com/tmoreton/kai/releases/download/v1.0.0/Kai_v1.0.0_x64-setup.exe"
+              href="https://github.com/tmoreton/kai/releases/download/v1.1.3/Kai_v1.1.3_x64-setup.exe"
               className="group"
             >
               <div className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-teal-300 hover:shadow-md transition-all h-full">
@@ -197,17 +192,7 @@ export default function Home() {
             </a>
           </div>
           
-          {/* CLI Alternative */}
-          <div className="mt-8 p-6 bg-white rounded-xl border border-gray-200 max-w-2xl mx-auto">
-            <h3 className="font-semibold text-gray-900 mb-2">Prefer CLI?</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              The CLI version works everywhere and auto-updates via npm.
-            </p>
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-lg font-mono text-sm">
-              <span className="text-gray-400">$</span>
-              <span className="text-gray-700">npm install -g kai</span>
-            </div>
-          </div>
+
         </div>
       </section>
 
